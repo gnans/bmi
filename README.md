@@ -12,3 +12,16 @@ To start the server do the following items
 
 3. Run the ```db.sql``` script in db
 4. Run the server application using ```pm2 start process.json``` command
+5. To do unit test run the command ```npm test``` in project folder path
+6. To test the api use the following curl
+```
+curl --location --request POST 'http://localhost:3000/bmi' \
+--header 'Content-Type: application/json' \
+--data-raw '[
+    {
+        "Gender": "Male",
+        "HeightCm": 171,
+        "WeightKg": 96
+    }
+]'
+```
