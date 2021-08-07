@@ -10,11 +10,9 @@ const db = pgp(dbConfig);
 function getData(values, numberOfPages, limit) {
   return function (index) {
     let data = null;
-    let count = 0;
     try {
       if (numberOfPages > index) {
-        count = index > 0 ? index + limit : index;
-        data = values.slice(count, count + limit);
+        data = values.slice(index, index + limit);
         data = data.map((d) => calculateBMI(d));
       }
       return Promise.resolve(data);
